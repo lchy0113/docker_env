@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+		slave-i386:
+			container_name:	HN_jenkins_slave_i386
+			image: ubuntu16.04.i386.jenkins_slave:latest
+			volumes:
+				~/home/hdd/vm_opt:/opt
+				~/home/hdd/work:/home/buildadmin/work
+				~/tftpboot:/tftpboot
+			port:
+				- "9022:22"
+			environment:
+				- TZ=Asia/Seoul
+			stdin_open:	true
