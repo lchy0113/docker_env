@@ -2,17 +2,19 @@
 # Android SDK Docker Image. (Customer by lchy0113)
 # ====================================================================== #
 
-# Author
-# ====================================================================== #
-LABEL MAINTAINER "lchy0113@gmail.com"
 
 # Base image
 # ====================================================================== #
 FROM ubuntu:16.04
 
+# Author
+# ====================================================================== #
+LABEL maintainer "lchy0113@gmail.com"
+
+
 # Sets Language to UTF8 : this works in pretty much all cases
-ENV LANG en_US.UTF-8
-RUN locale-gen $LANG
+#ENV LANG en_US.UTF-8
+#RUN locale-gen $LANG
 
 # install Java
 RUN mkdir /root/Develop
@@ -28,7 +30,8 @@ RUN apt-get -y install \
 	liblzo2-2	\
 	liblzo2-dev	\
 	lzop	\
-	git-core curl	\
+	git-core	\
+	curl	\
 	u-boot-tools	\
 	mtd-utils	\
 	android-tools-fsutils	\
@@ -60,4 +63,3 @@ RUN apt-get -y install \
 	vim
 
 RUN export USER=$(whoami)
-
