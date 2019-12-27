@@ -2,31 +2,62 @@
 # Android SDK Docker Image. (Customer by lchy0113)
 # ====================================================================== #
 
+# Author
+# ====================================================================== #
+LABEL MAINTAINER "lchy0113@gmail.com"
+
 # Base image
 # ====================================================================== #
 FROM ubuntu:16.04
 
-# Author
-# ====================================================================== #
-LABEL maintainer "lchy0113@gmail.com"
+# Sets Language to UTF8 : this works in pretty much all cases
+ENV LANG en_US.UTF-8
+RUN locale-gen $LANG
 
 # install Java
 RUN mkdir /root/Develop
 
+# Update apt-get
 RUN apt-get -y update
-RUN apt-get -y install uuid uuid-dev 
-RUN apt-get -y install zlib1g-dev liblz-dev 
-RUN apt-get -y install liblzo2-2 liblzo2-dev 
-RUN apt-get -y install lzop
-RUN apt-get -y install git-core curl
-RUN apt-get -y install u-boot-tools
-RUN apt-get -y install mtd-utils
-RUN apt-get -y install android-tools-fsutils
-RUN apt-get -y install openjdk-8-jdk
-RUN apt-get -y install device-tree-compiler
-RUN apt-get -y install gdisk
-RUN apt-get -y install make
-RUN apt-get -y install gcc
-RUN apt-get -y install bc
-RUN apt-get -y install vim
+
+# Installing packages
+RUN apt-get -y install \
+	uuid uuid-dev	\
+	zlib1g-dev	\
+	liblz-dev	\
+	liblzo2-2	\
+	liblzo2-dev	\
+	lzop	\
+	git-core curl	\
+	u-boot-tools	\
+	mtd-utils	\
+	android-tools-fsutils	\
+	openjdk-8-jdk	\
+	device-tree-compiler	\
+	gdisk	\
+	make	\
+	gcc	\
+	bc	\
+	m4 	\
+	ccache	\
+	zip	\
+	unzip	\
+	gnupg	\
+	flex	\
+	bison	\
+	gperf	\
+	build-essential	\
+	gcc-multilib	\
+	g++-multilib	\
+	libc6-dev-i386	\
+	lib32ncurses5-dev	\
+	x11proto-core-dev	\
+	libx11-dev	\ 
+	lib32z-dev	\
+	libgl1-mesa-dev	\
+	libxml2-utils	\
+	xsltproc	\
+	vim
+
+RUN export USER=$(whoami)
 
