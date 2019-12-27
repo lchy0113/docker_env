@@ -27,3 +27,6 @@ RUN apt-get -y install device-tree-compiler
 RUN apt-get -y install gdisk
 RUN apt-get -y install make
 RUN apt-get -y install gcc
+RUN apt-get -y install bc
+RUN apt-get -y install vim
+
