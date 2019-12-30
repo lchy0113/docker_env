@@ -16,9 +16,6 @@ LABEL maintainer "lchy0113@gmail.com"
 #ENV LANG en_US.UTF-8
 #RUN locale-gen $LANG
 
-# install Java
-RUN mkdir /root/Develop
-
 # Update apt-get
 RUN apt-get -y update
 
@@ -60,6 +57,22 @@ RUN apt-get -y install \
 	libgl1-mesa-dev	\
 	libxml2-utils	\
 	xsltproc	\
-	vim
+	vim	\
+	android-tools-adb	\
+	android-tools-fastboot	\
+	usbutils	\
+	sudo
+	
 
+# Add User
 RUN export USER=$(whoami)
+
+RUN adduser --disabled-password -gecos "" lchy0113 \
+		&& echo 'lchy0113:lchy0113' | chpasswd \
+		&& adduser lchy0113 sudo \
+		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+		&& mkdir /var/run/sshd
+USER lchy0113
+WORKDIR /home/lchy0113/
+
+
