@@ -61,7 +61,8 @@ RUN apt-get -y install \
 	android-tools-adb	\
 	android-tools-fastboot	\
 	usbutils	\
-	sudo
+	sudo	\
+	ctags
 	
 
 # Add User
