@@ -62,7 +62,8 @@ RUN apt-get -y install \
 	android-tools-fastboot	\
 	usbutils	\
 	sudo	\
-	ctags
+	ctags	\
+	cscope
 	
 
 
