@@ -65,15 +65,14 @@ RUN apt-get -y install \
 	ctags
 	
 
-# Add User
-RUN export USER=$(whoami)
 
 RUN adduser --disabled-password -gecos "" lchy0113 \
 		&& echo 'lchy0113:lchy0113' | chpasswd \
 		&& adduser lchy0113 sudo \
 		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
 		&& mkdir /var/run/sshd
-USER lchy0113
+# USER lchy0113
 WORKDIR /home/lchy0113/
 
 
+RUN export USER=$(whoami)
