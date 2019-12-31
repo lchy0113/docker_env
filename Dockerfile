@@ -71,7 +71,7 @@ RUN adduser --disabled-password -gecos "" lchy0113 \
 		&& adduser lchy0113 sudo \
 		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
 		&& mkdir /var/run/sshd
-# USER lchy0113
+USER lchy0113
 WORKDIR /home/lchy0113/
 
 
