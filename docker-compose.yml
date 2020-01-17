@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-		slave-i386:
-			container_name:	HN_jenkins_slave_i386
-			image: ubuntu16.04.i386.jenkins_slave:latest
-			volumes:
-				~/home/hdd/vm_opt:/opt
-				~/home/hdd/work:/home/buildadmin/work
-				~/tftpboot:/tftpboot
-			port:
-				- "9022:22"
-			environment:
-				- TZ=Asia/Seoul
-			stdin_open:	true
+ slave-amd64:
+  container_name: Android_Develop
+  image: tcc8985:0.0
+  stdin_open: true
+  volumes:
+   - /home/lchy0113:/home/lchy0113
+   - /dev/bus/usb:/dev/bus/usb
+   - /etc/localtime:/etc/localtime
+  environment:
+   - TZ=Asia/Seoul
+   - LC_ALL=C.UTF-8
+
