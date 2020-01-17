@@ -19,7 +19,8 @@ case $1 in
 	run)
 		echo "------------------------------------------"
 		echo "--> RUN"
-		docker run -it  -v /home/lchy0113:/home/lchy0113 --privileged -v /dev/bus/usb:/dev/bus/usb -v /etc/localtime:/etc/localtime:ro -e LC_ALL=C.UTF-8 tcc8985:0.0
+		docker exec -it Android_Develop bash
+		# docker run -it  -v /home/lchy0113:/home/lchy0113 --privileged -v /dev/bus/usb:/dev/bus/usb -v /etc/localtime:/etc/localtime:ro -e LC_ALL=C.UTF-8 tcc8985:0.0
 		;;
 	build)
 		echo "------------------------------------------"
