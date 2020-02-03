@@ -6,9 +6,9 @@ services:
   image: tcc8985:0.0
   stdin_open: true
   volumes:
-   - /home/lchy0113:/home/lchy0113
-   - /dev/bus/usb:/dev/bus/usb
-   - /etc/localtime:/etc/localtime
+   - '/home/lchy0113:/home/lchy0113'
+   - '/dev/bus/usb:/dev/bus/usb'
+   - '/etc/localtime:/etc/localtime'
   environment:
    - TZ=Asia/Seoul
    - LC_ALL=C.UTF-8
