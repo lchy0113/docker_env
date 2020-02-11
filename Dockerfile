@@ -21,7 +21,8 @@ RUN apt-get -y update
 
 # Installing packages
 RUN apt-get -y install \
-	uuid uuid-dev	\
+	uuid 	\
+	uuid-dev	\
 	zlib1g-dev	\
 	liblz-dev	\
 	liblzo2-2	\
@@ -58,8 +59,6 @@ RUN apt-get -y install \
 	libxml2-utils	\
 	xsltproc	\
 	vim	\
-	android-tools-adb	\
-	android-tools-fastboot	\
 	usbutils	\
 	sudo	\
 	ctags	\
