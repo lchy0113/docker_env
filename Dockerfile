@@ -32,7 +32,6 @@ RUN apt-get -y install \
 	curl	\
 	u-boot-tools	\
 	mtd-utils	\
-	android-tools-fsutils	\
 	openjdk-8-jdk	\
 	device-tree-compiler	\
 	gdisk	\
