@@ -18,6 +18,10 @@ LABEL maintainer "lchy0113@gmail.com"
 
 # Update apt-get
 RUN apt-get -y update
+RUN apt-get -y install software-properties-common
+RUN add-apt-repository -y ppa:openjdk-r/ppa
+RUN apt-get -y update
+
 
 # Installing packages
 RUN apt-get -y install \
@@ -32,7 +36,6 @@ RUN apt-get -y install \
 	curl	\
 	u-boot-tools	\
 	mtd-utils	\
-	openjdk-8-jdk	\
 	device-tree-compiler	\
 	gdisk	\
 	make	\
@@ -61,7 +64,8 @@ RUN apt-get -y install \
 	usbutils	\
 	sudo	\
 	ctags	\
-	cscope
+	cscope	\
+	openjdk-7-jdk	
 	
 
 
