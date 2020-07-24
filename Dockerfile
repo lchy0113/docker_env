@@ -81,6 +81,30 @@ RUN adduser -u 1005 --disabled-password -gecos "" yschoi \
 		&& adduser yschoi sudo \
 		&& echo 'yschoi ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 
+#############
+# Install Jenkins.
+# made from https://github.com/jenkinsci/docker/blob/83ce6f6070f1670563a00d0f61d04edd62b78f4f/Dockerfile
+ENV JENKINS_HOME /home/working_space/jenkins_nhn1033 
+
+# Jenkins is run with user `jenkins`, uid = 1002
+# If you bind mount a volume from the host or a data container,
+# ensure you use the same uid
+# and change password for jenkins account.
+RUN adduser --disabled-password --gecos "" jenkins \
+		&& echo 'jenkins:jenkins' | chpasswd \
+   		&& adduser jenkins sudo \
+		&& echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+RUN echo "jenkins:jenkins" | chpasswd
+
+RUN mkdir -p /home/jenkins/.ssh/
+RUN chown jenkins:jenkins -R /home/jenkins/
+
+# Jenkins home directory is a volume, so configuration and build history
+# can be persisted and survive image upgrades
+VOLUME /home/working_space/jenkins_nhn1033
+
+
 # replace sshd_config
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
