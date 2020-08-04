@@ -108,10 +108,11 @@ RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /home/jenkins/
 RUN chmod a+x /home/jenkins/bin/repo
 
 # Register gerrit ssh key.
-RUN /home/jenkins/tools/kdiwin_nhn1033/kdone_RSA_PRIVATE.sh
+#RUN /home/jenkins/tools/kdiwin_nhn1033/kdone_RSA_PRIVATE.sh
 # Jenkins home directory is a volume, so configuration and build history
 # can be persisted and survive image upgrades
 #VOLUME /home/working_space/jenkins_nhn1033
+VOLUME "/tmp" "/run" "/var/run"
 
 
 # replace sshd_config
