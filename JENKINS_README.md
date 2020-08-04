@@ -1,7 +1,23 @@
 jenkins setting 
 =====
 # General 
+## Check job prerequisites
+> shell script
+```
+# Register gerrit ssh key.
+#!/bin/sh
+cd ${HOME}
+if ! [ -e ".ssh" ]; then
+    /home/jenkins/tools/kdiwin_nhn1033/kdone_RSA_PRIVATE.sh
+fi
+rm -rf /home/jenkins/workspace/NHN-1033
+```
+
 ## Restrict where this project can be run
+> Label Expression
+```
+NHN-1033
+```
 
 # Source Code management
 ## Gerrit Repo
