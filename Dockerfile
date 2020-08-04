@@ -60,7 +60,8 @@ RUN apt-get -y install \
 	ctags	\
 	cscope	\
 	openssh-server \
-	locales
+	locales	\
+	repo
 	
 # Sets Language to UTF8 : this works in pretty much all cases
 RUN LANGUAGE=ko_KR.UTF-8 LANG=ko_KR.UTF-8 locale-gen ko_KR ko_KR.UTF-8
@@ -95,14 +96,22 @@ RUN adduser --disabled-password --gecos "" jenkins \
    		&& adduser jenkins sudo \
 		&& echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-RUN echo "jenkins:jenkins" | chpasswd
+RUN echo "jenkins:1234" | chpasswd
 
 RUN mkdir -p /home/jenkins/.ssh/
 RUN chown jenkins:jenkins -R /home/jenkins/
 
+RUN mkdir -p /home/jenkins/tools
+RUN mkdir -p /home/jenkins/bin
+RUN PATH=/home/jenkins/bin:$PATH
+RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /home/jenkins/bin/repo
+RUN chmod a+x /home/jenkins/bin/repo
+
+# Register gerrit ssh key.
+RUN /home/jenkins/tools/kdiwin_nhn1033/kdone_RSA_PRIVATE.sh
 # Jenkins home directory is a volume, so configuration and build history
 # can be persisted and survive image upgrades
-VOLUME /home/working_space/jenkins_nhn1033
+#VOLUME /home/working_space/jenkins_nhn1033
 
 
 # replace sshd_config
