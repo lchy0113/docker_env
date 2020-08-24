@@ -5,7 +5,7 @@
 
 # Base image
 # ====================================================================== #
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Author
 # ====================================================================== #
@@ -21,44 +21,57 @@ RUN apt-get -y update
 
 # Installing packages
 RUN apt-get -y install \
-	uuid 	\
-	uuid-dev	\
-	zlib1g-dev	\
-	liblz-dev	\
-	liblzo2-2	\
-	liblzo2-dev	\
+	git	\
+	pkg-config	\
+	cmake	\
+	libssl-dev	\
+	libcurl4-openssl-dev	\
+	liblog4cplus-dev	\
+	libgstreamer1.0-dev	\
+	libgstreamer-plugins-base1.0-dev	\
+	gstreamer1.0-plugins-base-apps	\
+	gstreamer1.0-plugins-bad	\
+	gstreamer1.0-plugins-good	\
+	gstreamer1.0-plugins-ugly 	\
+	gstreamer1.0-tools	\
+#uuid 	\
+#	uuid-dev	\
+#	zlib1g-dev	\
+#	liblz-dev	\
+#	liblzo2-2	\
+#	liblzo2-dev	\
 	lzop	\
 	git-core	\
 	curl	\
-	u-boot-tools	\
-	mtd-utils	\
-	openjdk-8-jdk	\
-	device-tree-compiler	\
-	gdisk	\
-	make	\
-	gcc	\
-	bc	\
-	m4 	\
+#	u-boot-tools	\
+#	mtd-utils	\
+#	openjdk-8-jdk	\
+#	device-tree-compiler	\
+#	gdisk	\
+#	make	\
+#	gcc	\
+#	bc	\
+#	m4 	\
 	ccache	\
 	zip	\
 	unzip	\
-	gnupg	\
-	flex	\
-	bison	\
-	gperf	\
-	build-essential	\
-	gcc-multilib	\
-	g++-multilib	\
-	libc6-dev-i386	\
-	lib32ncurses5-dev	\
-	x11proto-core-dev	\
-	libx11-dev	\ 
-	lib32z-dev	\
-	libgl1-mesa-dev	\
-	libxml2-utils	\
-	xsltproc	\
+#	gnupg	\
+#	flex	\
+#	bison	\
+#	gperf	\
+#	build-essential	\
+#	gcc-multilib	\
+#	g++-multilib	\
+#	libc6-dev-i386	\
+#	lib32ncurses5-dev	\
+#	x11proto-core-dev	\
+#	libx11-dev	\ 
+#	lib32z-dev	\
+#	libgl1-mesa-dev	\
+#	libxml2-utils	\
+#	xsltproc	\
 	vim	\
-	usbutils	\
+#	usbutils	\
 	sudo	\
 	ctags	\
 	cscope
