@@ -23,7 +23,7 @@ RUN apt-get -y update
 RUN apt-get -y install \
 	git	\
 	pkg-config	\
-	cmake	\
+#	cmake	\
 	libssl-dev	\
 	libcurl4-openssl-dev	\
 	liblog4cplus-dev	\
@@ -34,6 +34,9 @@ RUN apt-get -y install \
 	gstreamer1.0-plugins-good	\
 	gstreamer1.0-plugins-ugly 	\
 	gstreamer1.0-tools	\
+#	gcc-arm-linux-gnueabi \
+#	g++-arm-linux-gnueabi	\
+	binutils-arm-linux-gnueabi	\
 #uuid 	\
 #	uuid-dev	\
 #	zlib1g-dev	\
