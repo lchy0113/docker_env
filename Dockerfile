@@ -93,6 +93,12 @@ RUN adduser -u 1005 --disabled-password -gecos "" kbh88zz \
 		&& adduser kbh88zz sudo \
 		&& echo 'kbh88zz ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 
+RUN adduser -u 1007 --disabled-password -gecos "" syjeon \
+		&& echo 'syjeon:syjeon' | chpasswd \
+		&& adduser syjeon sudo \
+		&& echo 'syjeon ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
+
+
 
 
 #############
