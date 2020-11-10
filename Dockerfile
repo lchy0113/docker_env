@@ -72,15 +72,28 @@ ENV LC_ALL ko_KR.UTF-8
 
 RUN mkdir -p /var/run/sshd
 
-RUN adduser --disabled-password -gecos "" lchy0113 \
+RUN adduser -u 1000 --disabled-password -gecos "" lchy0113 \
 		&& echo 'lchy0113:lchy0113' | chpasswd \
 		&& adduser lchy0113 sudo \
 		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 
-RUN adduser -u 1005 --disabled-password -gecos "" yschoi \
-		&& echo 'yschoi:yschoi' | chpasswd \
-		&& adduser yschoi sudo \
-		&& echo 'yschoi ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
+RUN adduser -u 1001 --disabled-password -gecos "" jkkim \
+		&& echo 'jkkim:jkkim' | chpasswd \
+		&& adduser jkkim sudo \
+		&& echo 'jkkim ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
+
+
+RUN adduser -u 1002 --disabled-password -gecos "" ssyoo \
+		&& echo 'ssyoo:ssyoo' | chpasswd \
+		&& adduser ssyoo sudo \
+		&& echo 'ssyoo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
+
+RUN adduser -u 1005 --disabled-password -gecos "" kbh88zz \
+		&& echo 'kbh88zz:kbh88zz' | chpasswd \
+		&& adduser kbh88zz sudo \
+		&& echo 'kbh88zz ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
+
+
 
 #############
 # Install Jenkins.
