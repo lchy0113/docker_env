@@ -60,6 +60,8 @@ RUN apt-get -y install \
 	vim	\
 	usbutils	\
 	sudo	\
+	python \
+	figlet	\
 	ctags	\
 	cscope
 	
