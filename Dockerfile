@@ -67,15 +67,16 @@ RUN apt-get -y install \
 		locales	\
 		repo
 
-RUN mkdir -p /var/run/sshd	
-
+RUN locale-gen en_US.UTF-8
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 RUN adduser --disabled-password -gecos "" lchy0113 \
 		&& echo 'lchy0113:lchy0113' | chpasswd \
 		&& adduser lchy0113 sudo \
-		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
-USER lchy0113
-WORKDIR /home/lchy0113/
+		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+		&& mkdir /var/run/sshd
+
+WORKDIR /home/$(whoami)/
 
 EXPOSE 22
 
