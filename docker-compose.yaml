@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  nhn1033_develop:
-    container_name: pub-tcc8985
+  tcc8985_develop:
+    container_name: tcc8985_develop
 #    image: 192.168.27.12:5000/pub-tcc8985:latest
-    image: 
+    image: tcc8985:0.1 
     command: /usr/sbin/sshd -D
     ports:
       - "9022:22"
@@ -23,7 +23,7 @@ services:
   a40i_develop:
     container_name: a40i_develop
 #    image: 192.168.27.12:5000/a40i:latest
-    image: a40i:latest
+    image: a40i:0.0
     command: /usr/sbin/sshd -D
     ports:
       - "9023:22"
