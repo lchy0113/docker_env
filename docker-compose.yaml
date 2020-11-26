@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  a40i_develop:
+    container_name: a40i_develop
+    image: a40i:0.0
+    command: /usr/sbin/sshd -D
+    ports:
+      - "9022:22"
+    expose:
+      - "9022"
+    stdin_open: true
+    volumes:
+      - '/home/lchy0113:/home/lchy0113'
+      - '/dev/bus/usb:/dev/bus/usb'
+      - '/etc/localtime:/etc/localtime'
+    privileged: true
+    networks:
+      HN_network:
+        ipv4_address : 172.22.0.13
+
+networks:
+  HN_network:
+    ipam:
+      driver: default
+      config: 
+        - subnet: 172.22.0.0/16
+ 
