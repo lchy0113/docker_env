@@ -65,6 +65,7 @@ RUN apt-get -y install \
 		cscope	\
 		openssh-server \
 		locales	\
+		figlet \
 		repo
 
 RUN locale-gen en_US.UTF-8
