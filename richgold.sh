@@ -20,11 +20,12 @@ case $1 in
 		echo "------------------------------------------"
 		echo "--> RUN"
 		# docker exec -it Android_Develop bash
-		docker run -it  -v /home/lchy0113:/home/lchy0113 --privileged -v /dev/bus/usb:/dev/bus/usb -v /etc/localtime:/etc/localtime:ro -e LC_ALL=C.UTF-8 tcc8985:0.0
+		docker run -it  -v /home/lchy0113:/home/lchy0113 --privileged -v /dev/bus/usb:/dev/bus/usb -v /etc/localtime:/etc/localtime:ro -e LC_ALL=C.UTF-8 a40i:0.0
 		;;
 	build)
 		echo "------------------------------------------"
 		echo "--> BUILD"
-		docker build --no-cache --tag tcc8985:0.0 .
+		#docker build --no-cache --tag a40i:0.0 .
+		docker build --tag a40i:0.0 .
 		;;
 esac
