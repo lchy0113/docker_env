@@ -4,7 +4,7 @@ services:
   tcc8985_develop:
     container_name: tcc8985_develop
 #    image: 192.168.27.12:5000/pub-tcc8985:latest
-    image: tcc8985:0.1 
+    image: tcc8985:0.3
     command: /usr/sbin/sshd -D
     ports:
       - "9022:22"
