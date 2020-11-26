@@ -21,59 +21,64 @@ RUN apt-get -y update
 
 # Installing packages
 RUN apt-get -y install \
-	uuid 	\
-	uuid-dev	\
-	zlib1g-dev	\
-	liblz-dev	\
-	liblzo2-2	\
-	liblzo2-dev	\
-	lzop	\
-	git-core	\
-	curl	\
-	u-boot-tools	\
-	mtd-utils	\
-	openjdk-8-jdk	\
-	device-tree-compiler	\
-	gdisk	\
-	make	\
-	gcc	\
-	bc	\
-	m4 	\
-	ccache	\
-	zip	\
-	unzip	\
-	gnupg	\
-	flex	\
-	bison	\
-	gperf	\
-	build-essential	\
-	gcc-multilib	\
-	g++-multilib	\
-	libc6-dev-i386	\
-	lib32ncurses5-dev	\
-	x11proto-core-dev	\
-	libx11-dev	\ 
-	lib32z-dev	\
-	libgl1-mesa-dev	\
-	libxml2-utils	\
-	xsltproc	\
-	vim	\
-	usbutils	\
-	sudo	\
-	python \
-	figlet	\
-	ctags	\
-	cscope
-	
+		uuid 	\
+		uuid-dev	\
+		zlib1g-dev	\
+		liblz-dev	\
+		liblzo2-2	\
+		liblzo2-dev	\
+		lzop	\
+		git-core	\
+		curl	\
+		u-boot-tools	\
+		python	\
+		mtd-utils	\
+		openjdk-8-jdk	\
+		device-tree-compiler	\
+		gdisk	\
+		make	\
+		gcc	\
+		bc	\
+		m4 	\
+		ccache	\
+		zip	\
+		unzip	\
+		gnupg	\
+		flex	\
+		bison	\
+		gperf	\
+		build-essential	\
+		gcc-multilib	\
+		g++-multilib	\
+		libc6-dev-i386	\
+		lib32ncurses5-dev	\
+		x11proto-core-dev	\
+		libx11-dev	\ 
+		lib32z-dev	\
+		libgl1-mesa-dev	\
+		libxml2-utils	\
+		xsltproc	\
+		vim	\
+		usbutils	\
+		sudo	\
+		ctags	\
+		cscope	\
+		openssh-server \
+		locales	\
+		repo
+
+RUN mkdir -p /var/run/sshd	
 
 
 RUN adduser --disabled-password -gecos "" lchy0113 \
 		&& echo 'lchy0113:lchy0113' | chpasswd \
 		&& adduser lchy0113 sudo \
-		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
-		&& mkdir /var/run/sshd
+		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 USER lchy0113
 WORKDIR /home/lchy0113/
 
+EXPOSE 22
 
 RUN export USER=$(whoami)
+
+CMD ["/usr/sbin/sshd", "-D"]

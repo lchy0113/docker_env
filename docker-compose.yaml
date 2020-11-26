@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  tcc8985_develop:
+    container_name: tcc8985_develop
+#    image: 192.168.27.12:5000/pub-tcc8985:latest
+    image: tcc8985:0.1 
+    command: /usr/sbin/sshd -D
+    ports:
+      - "9022:22"
+    expose:
+      - '9022'
+    stdin_open: true
+    volumes:
+      - '/home/lchy0113:/home/lchy0113'
+      - '/dev/bus/usb:/dev/bus/usb'
+      - '/etc/localtime:/etc/localtime'
+    privileged: true
+    networks:
+      HN_network:
+        ipv4_address : 172.22.0.7
+
+  a40i_develop:
+    container_name: a40i_develop
+#    image: 192.168.27.12:5000/a40i:latest
+    image: a40i:0.0
+    command: /usr/sbin/sshd -D
+    ports:
+      - "9023:22"
+    expose:
+      - "9023"
+    stdin_open: true
+    volumes:
+      - '/home/lchy0113:/home/lchy0113'
+      - '/dev/bus/usb:/dev/bus/usb'
+      - '/etc/localtime:/etc/localtime'
+    privileged: true
+    networks:
+      HN_network:
+        ipv4_address : 172.22.0.13
+
+networks:
+  HN_network:
+    ipam:
+      driver: default
+      config: 
+        - subnet: 172.22.0.0/16
+ 

@@ -25,6 +25,6 @@ case $1 in
 	build)
 		echo "------------------------------------------"
 		echo "--> BUILD"
-		docker build --no-cache --tag tcc8985:0.0 .
+		docker build --no-cache --tag tcc8985:0.1 .
 		;;
 esac
